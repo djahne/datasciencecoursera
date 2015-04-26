@@ -105,10 +105,21 @@ loadData <- function(dataFilePath,
     dataAll <- cbind(subjects, labels, dataExtracted)
 }
 
+## Summarizes the input data by computing the average of each variable accross each
+##  subject/activity combination
+## Input:
+##  The data to be summarized
+## Output:
+##  The data summarized as the mean of each variable for the specific subject/activity
+##      combination
 getTidyData <- function(fullData){
+    # use the aggregate function to compute the mean of each variable, grouped
+    #   by subject and activity
+    # also remove the subject_id and activity_name columns, which are replaced
+    #   with factors once they are used to aggregate and become redundant
     tidyData <- aggregate(fullData[,!(colnames(fullData) %in% c("subject_id", "activity_name"))], 
               by=list(subject=fullData$subject_id, activity=fullData$activity_name), 
               FUN=mean)
+    # arrange the data in a tidy order, by subject and then by activity
     tidyData <- arrange(tidyData,subject,activity)
 }
-

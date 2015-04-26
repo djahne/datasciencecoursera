@@ -32,6 +32,6 @@ Executing this script will create a new file in the working directory, "averageV
 Codebook:
 <ul>
 <li>subject: the identifier for the individual (subject) that this data is associated with</li>
-<li>activiy: the activity the subject was performing</li>
+<li>activity: the activity the subject was performing</li>
 <li>Remaining columns are the average value across all observations for this specific subject/activity combination. Please see the following file for details: ".\\UCI HAR Dataset\\features_info.txt"</li>
 </ul>
